@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - ThriveX</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="thrivex-sidebar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Add Chart.js CDN if you plan to use it for graphs -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+</head>
+<body>
+    <header>
+        <div class="logo-placeholder">
+            <!-- Wrap image with anchor tag -->
+            <a href="dashboard.html">
+                 <img src="placeholder-logo.png" alt="App Logo" style="height: 40px;">
+            </a>
+        </div>
+        <nav class="header-nav">
+            <ul>
+                <li><a href="#" id="dashboard-link">Dashboard</a></li> <!-- Active link -->
+                <li><a href="#" id="investments-link">Investments</a></li>
+                <li><a href="#" id="discover-link">Discover</a></li>
+            </ul>
+        </nav>
+        <div class="avatar-placeholder">
+            <!-- Content (icon or img) is dynamically updated by script.js -->
+            <i class="fas fa-user-circle"></i>
+            <div id="avatarDropdown" class="dropdown-content"> <!-- Standardized ID -->
+                <a href="update-profile.html" id="profile-link">Update Profile</a>
+                <a href="#" id="logoutLink">Logout</a> <!-- Standardized ID -->
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <!-- Left Sidebar - 1/4 width -->
+        <aside class="dashboard-sidebar left-sidebar">
+            <!-- ThriveX-style profile card with banner and overlay -->
+            <div class="investor-profile-card">
+                <div class="sidebar-profile-visuals"> <!-- Container for banner and photo -->
+                    <div class="sidebar-banner"></div> <!-- Banner element -->
+                    <!-- Edit button for both banner and photo -->
+                    <a href="update-profile.html" class="edit-sidebar-visuals-btn" title="Edit Banner & Photo">
+                        <i class="fas fa-pencil-alt"></i>
+                    </a>
+                    <div class="profile-photo-center"> <!-- Photo container (positioned over banner) -->
+                        <img src="placeholder-avatar.png" alt="Profile Photo">
+                    </div>
+                    <!-- This div is now empty or might be removed later -->
+                    <div class="profile-content-center"></div> 
+                </div>
+
+                <!-- New container for details below the banner/photo -->
+                <div class="profile-details-strip">
+                    <div class="profile-header">
+                        <h1 class="profile-name">PRIYANSHU ANAND</h1>
+                        <div class="profile-verification-badge">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <!-- Edit button moved/hidden via CSS previously -->
+                        <!-- <a href="update-profile.html" class="edit-profile-btn" title="Edit Profile">
+                            <i class="fas fa-pencil-alt"></i>
+                        </a> -->
+                    </div>
+                    <p class="profile-tagline">Aspiring Developer</p>
+                    <!-- Original company div hidden via CSS previously -->
+                    <!-- <div class="profile-company">...</div> -->
+                </div>
+            </div>
+            
+            <!-- Connects section -->
+            <!-- 
+            <div class="sidebar-section">
+                <div class="section-header">
+                    <span class="section-title">Connects</span>
+                    <span class="connection-count">8</span>
+                </div>
+                <p class="section-subtitle">Connect with Investors</p>
+            </div>
+            -->
+            
+            <!-- Menu Items -->
+            <div class="sidebar-section sidebar-menu">
+                <ul class="menu-list">
+                    <li>
+                        <i class="far fa-bookmark"></i>
+                        <span>Companies</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-users"></i>
+                        <span>Team</span>
+                    </li>
+                    <li>
+                        <i class="far fa-newspaper"></i>
+                        <span>Articles</span>
+                    </li>
+                    <li>
+                        <i class="far fa-calendar"></i>
+                        <span>Meetings</span>
+                    </li>
+                </ul>
+                <div class="show-more">
+                    <span>Show more</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h2>Navigation</h2>
+                <ul class="sidebar-menu">
+                    <li><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="#"><i class="fas fa-chart-line"></i> Investments</a></li>
+                    <li><a href="#"><i class="fas fa-search"></i> Discover</a></li>
+                    <li><a href="#"><i class="fas fa-wallet"></i> Wallet</a></li>
+                    <li><a href="#"><i class="fas fa-file-invoice-dollar"></i> Reports</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h2>Resources</h2>
+                <ul class="sidebar-menu">
+                    <li><a href="#"><i class="fas fa-book"></i> Learning Center</a></li>
+                    <li><a href="#"><i class="fas fa-question-circle"></i> Help & Support</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i> Community</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content - 1/2 width -->
+        <main class="dashboard-main">
+            <h1>Welcome Back, Investor!</h1>
+
+            <section class="dashboard-metrics">
+                <div class="metric-card">
+                    <h2>Total Investment</h2>
+                    <p>$15,750</p>
+                </div>
+                <div class="metric-card">
+                    <h2>Portfolio Value</h2>
+                    <p>$18,230</p>
+                </div>
+                <div class="metric-card">
+                    <h2>Available Funds</h2>
+                    <p>$2,500</p>
+                </div>
+            </section>
+
+            <section class="dashboard-content">
+                <div class="dashboard-chart">
+                    <h2>Investment Growth</h2>
+                    <!-- Placeholder for chart -->
+                    <div class="chart-placeholder">Chart Area (e.g., using Chart.js)</div>
+                </div>
+                <div class="dashboard-companies">
+                    <h2>Featured Startups</h2>
+                    <ul>
+                        <li><a href="#">Innovatech Solutions</a> - AI Development</li>
+                        <li><a href="#">GreenFuture Energy</a> - Renewable Tech</li>
+                        <li><a href="#">HealthWell AI</a> - Medical Diagnostics</li>
+                        <li><a href="#">Quantum Leap Computing</a> - Advanced Computing</li>
+                    </ul>
+                    <a href="#" class="view-all-link">View All Startups</a>
+                </div>
+            </section>
+        </main>
+
+        <!-- Right Sidebar - 1/4 width -->
+        <aside class="dashboard-sidebar right-sidebar">
+            <div class="sidebar-section">
+                <h2>Recent Activity</h2>
+                <ul class="activity-list">
+                    <li>
+                        <span class="activity-date">May 1, 2025</span>
+                        <span class="activity-type investment">Investment</span>
+                        <p>GreenFuture Energy ($1,000)</p>
+                    </li>
+                    <li>
+                        <span class="activity-date">Apr 28, 2025</span>
+                        <span class="activity-type dividend">Dividend</span>
+                        <p>Innovatech Solutions ($50)</p>
+                    </li>
+                    <li>
+                        <span class="activity-date">Apr 25, 2025</span>
+                        <span class="activity-type deposit">Deposit</span>
+                        <p>Account funds ($2,000)</p>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h2>Market Updates</h2>
+                <div class="market-updates">
+                    <p><strong>Tech Sector:</strong> <span class="trend-up">+2.3%</span></p>
+                    <p><strong>Green Energy:</strong> <span class="trend-up">+1.7%</span></p>
+                    <p><strong>Healthcare:</strong> <span class="trend-down">-0.5%</span></p>
+                    <p><small>Last updated: May 3, 2025</small></p>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <nav class="footer-nav">
+            <ul>
+                <li><a href="#" id="terms-link">Terms of Service</a></li>
+                <li><a href="#" id="privacy-link">Privacy Policy</a></li>
+                <li><a href="#" id="contact-link">Contact Us</a></li>
+            </ul>
+        </nav>
+        <p>&copy; 2025 ThriveX. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <!-- Add specific dashboard JS if needed -->
+    <!-- <script src="dashboard-script.js"></script> -->
+</body>
+</html>

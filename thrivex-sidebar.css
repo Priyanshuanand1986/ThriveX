@@ -1,0 +1,267 @@
+/* ThriveX sidebar styles with LinkedIn-inspired elements */
+
+/* Override default sidebar styles */
+.dashboard-sidebar.left-sidebar {
+    padding: 8px;
+    background-color: #f3f2ef;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* Profile card styling */
+.investor-profile-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: visible; /* Allow photo to overflow */
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+    margin-bottom: 0.8rem;
+    /* padding: 12px 10px; */ /* Remove padding, handled by inner elements */
+    text-align: center;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+/* New container for banner and photo */
+.sidebar-profile-visuals {
+    position: relative;
+    /* margin-bottom: 55px; */ /* Removed margin, content is now overlaid */
+}
+
+/* Banner styling */
+.sidebar-banner {
+    height: 98px; /* Decreased height by 30% (140px - 42px) */
+    background-color: #111; /* Dark background color (replace with image if provided) */
+    /* background-image: url('profile-banner.png'); */ /* Commented out placeholder */
+    background-size: cover;
+    background-position: center;
+    border-top-left-radius: 8px; /* Match card radius */
+    border-top-right-radius: 8px;
+    width: 100%; /* Ensure banner takes full width */
+}
+
+.profile-photo-center {
+    width: 80px; /* Slightly smaller photo */
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    background-color: #fff;
+    position: absolute;
+    top: 58px; /* Adjust position relative to new banner height (98px - 80px/2) */
+    left: 15px; /* Position from left */
+    /* transform: translateX(-50%); */ /* Removed centering transform */
+    z-index: 2; /* Ensure photo is above content overlay */
+}
+
+.profile-photo-center img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* New edit button for sidebar visuals */
+.edit-sidebar-visuals-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 3; /* Ensure it's above photo and content */
+    transition: background-color 0.2s ease;
+    font-size: 12px;
+}
+
+.edit-sidebar-visuals-btn:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Clean up styles for the old content container */
+.profile-content-center {
+    /* position: absolute; */ /* Removed */
+    /* top: 65px; */ /* Removed */
+    /* left: 105px; */ /* Removed */
+    /* right: 10px; */ /* Removed */
+    /* bottom: 10px; */ /* Removed */
+    /* text-align: left; */ /* Removed */
+    padding: 0; /* Keep padding reset */
+    /* z-index: 1; */ /* Removed */
+}
+
+/* Styles for the new details strip below the banner/photo */
+.profile-details-strip {
+    background-color: #fff;
+    padding: 10px 15px 27px;
+    /* text-align: right; */ /* Use flex alignment instead */
+    border-top: 1px solid #eee; /* Optional separator */
+    position: relative; /* Needed if any child uses absolute positioning */
+    border-bottom-left-radius: 8px; /* Match card/banner radius */
+    border-bottom-right-radius: 8px; /* Match card/banner radius */
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack children vertically */
+    align-items: flex-end; /* Align children to the right */
+}
+
+.profile-header {
+    position: static; /* Ensure static positioning */
+    display: inline-flex; /* Keep name and badge together inline */
+    align-items: center; /* Align name and badge vertically */
+    margin-right: 0;
+    /* margin-bottom: 2px; */
+}
+
+.profile-name {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 2px;
+    color: rgba(0, 0, 0, 0.9); /* Revert to dark text color */
+    letter-spacing: 0.2px;
+}
+
+.profile-name:hover {
+    text-decoration: none;
+    cursor: default;
+    color: rgba(0, 0, 0, 0.9); /* Keep dark on hover */
+}
+
+.edit-profile-btn {
+    display: none; /* Hide the small edit pencil for now, conflicts with layout */
+}
+
+.profile-verification-badge {
+    display: inline-block; /* Keep inline-block */
+    margin-left: 5px; /* Keep left margin for spacing */
+    color: #00bf63; /* Keep badge color */
+    vertical-align: middle; /* Ensure vertical alignment */
+}
+
+.profile-tagline {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0 0 0;
+    line-height: 1.3;
+    /* text-align: right; */ /* Remove, handled by flex container */
+}
+
+/* Hide the original company section, needs different HTML */
+.profile-company {
+    display: none;
+}
+
+/* Section styling */
+.sidebar-section {
+    padding: 8px 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    background-color: #fff;
+    border-radius: 8px;
+    margin-bottom: 6px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.9);
+}
+
+.section-subtitle {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 3px 0 0 0;
+}
+
+.connection-count {
+    font-size: 14px;
+    font-weight: 600;
+    color: #00bf63;
+}
+
+/* Menu styling */
+.menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-list li {
+    display: flex;
+    align-items: center;
+    padding: 6px 10px;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.menu-list li:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+.menu-list i {
+    margin-right: 8px;
+    font-size: 14px;
+    width: 14px;
+    text-align: center;
+}
+
+.show-more {
+    margin-top: 4px;
+    padding: 6px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.show-more:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+.show-more i {
+    font-size: 12px;
+}
+
+/* Override ThriveX sidebar styles to make them more compact */
+.dashboard-sidebar .sidebar-section {
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.8rem;
+}
+
+.dashboard-sidebar .sidebar-section h2 {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 4px;
+}
+
+.dashboard-sidebar .sidebar-menu li {
+    margin-bottom: 2px;
+}
+
+.dashboard-sidebar .sidebar-menu a {
+    padding: 4px 6px;
+    font-size: 12px;
+}
+
+.dashboard-sidebar .sidebar-menu i {
+    margin-right: 6px;
+    font-size: 12px;
+    width: 16px;
+}

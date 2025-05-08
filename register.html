@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Startup Investment App</title> <!-- Changed title -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo-placeholder">
+            <!-- Update the href to point to the login page -->
+            <a href="index.html"><img src="placeholder-logo.png" alt="ThriveX Logo" width="120"></a>
+        </div>
+        <nav class="header-nav">
+            <ul>
+                <li><a href="#">Investments</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Discover</a></li>
+            </ul>
+        </nav>
+        <div class="sign-in-button-placeholder">
+            <a href="index.html" class="sign-in-button">Sign In</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="login-container"> <!-- Reusing login-container style for consistency -->
+            <h1>Register</h1> <!-- Changed heading -->
+            <form id="register-form"> <!-- Changed form ID -->
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password:</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                </div>
+                <button type="submit">Register</button> <!-- Changed button text -->
+            </form>
+            <p>Already have an account? <a href="index.html" id="login-link">Login here</a></p> <!-- Changed text and link -->
+        </div>
+    </main>
+
+    <footer>
+        <nav class="footer-nav">
+            <ul>
+                <li><a href="#" id="terms-link">Terms of Service</a></li>
+                <li><a href="#" id="privacy-link">Privacy Policy</a></li>
+                <li><a href="#" id="contact-link">Contact Us</a></li>
+            </ul>
+        </nav>
+        <p>&copy; 2025 Startup Investment App. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script> <!-- Reusing the same script, might need adjustments later -->
+</body>
+</html>

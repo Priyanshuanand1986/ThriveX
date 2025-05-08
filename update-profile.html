@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Profile - ThriveX</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo-placeholder">
+            <a href="dashboard.html"><img src="placeholder-logo.png" alt="ThriveX Logo" width="120"></a>
+        </div>
+        <nav class="header-nav">
+            <ul>
+                <li><a href="#">Investments</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Discover</a></li>
+            </ul>
+        </nav>
+         <div class="avatar-placeholder" id="avatarPlaceholder">
+             <i class="fas fa-user-circle"></i>
+             <div class="dropdown-content" id="avatarDropdown">
+                 <a href="update-profile.html">Update Profile</a>
+                 <a href="#" id="logoutLink">Logout</a>
+             </div>
+         </div>
+    </header>
+
+    <main>
+        <div class="profile-update-container">
+            <h1>Edit Profile</h1>
+            <p style="text-align: center; margin-bottom: 2rem;">Update your personal and company information.</p>
+
+            <form id="updateProfileForm">
+                <div class="two-column-form"> <!-- Add container for columns -->
+                    <div class="form-column"> <!-- Left Column: Personal Info -->
+                        <h2>Personal Information</h2>
+
+                        <!-- Profile Visuals Container -->
+                        <div class="profile-header-visuals">
+                            <!-- Profile Banner Upload -->
+                            <div class="photo-upload banner-upload">
+                                <!-- Label hidden via CSS -->
+                                <label for="profileBanner">Profile Banner</label>
+                                <div class="photo-preview banner-preview" id="profileBannerPreview">
+                                    <!-- Placeholder removed -->
+                                </div>
+                                <!-- Hidden file input for banner -->
+                                <input type="file" id="profileBanner" name="profileBanner" accept="image/*" class="file-input">
+                                <!-- Single edit button for banner -->
+                                <button type="button" class="edit-visuals-btn" onclick="document.getElementById('profileBanner').click();" title="Change Banner">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </button>
+                            </div>
+
+                            <!-- Profile Photo Upload (Positioned over banner via CSS) -->
+                            <div class="photo-upload profile-photo-overlay">
+                                 <!-- Label hidden via CSS -->
+                                <label for="profilePhoto">Profile Photo</label>
+                                <!-- Make preview clickable -->
+                                <div class="photo-preview" id="profilePhotoPreview" onclick="document.getElementById('profilePhoto').click();" title="Change Photo">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                <!-- Hidden file input for photo -->
+                                <input type="file" id="profilePhoto" name="profilePhoto" accept="image/*" class="file-input">
+                            </div>
+                        </div>
+                        <!-- End Profile Visuals Container -->
+
+                        <!-- Personal Details -->
+                        <div class="form-row">
+                            <div class="form-group inline">
+                                <label for="firstName">First Name*</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group inline">
+                                <label for="lastName">Last Name*</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group"> <!-- Add Tagline field -->
+                            <label for="tagline">Tagline/Title</label>
+                            <input type="text" id="tagline" name="tagline" placeholder="e.g., Software Engineer | Aspiring Entrepreneur">
+                            <p class="form-info">Your professional headline shown on your profile</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email*</label>
+                            <input type="email" id="email" name="email" required>
+                            <p class="form-info">Your email is used for notifications and login</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                            <p class="form-info">Add a phone number for contact</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="homeAddress">Home Address</label>
+                            <textarea id="homeAddress" name="homeAddress" rows="2"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="state">State</label>
+                            <select id="state" name="state" required>
+                                <option value="" disabled selected>Select your state</option>
+                                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                    <option value="Assam">Assam</option>
+                                    <option value="Bihar">Bihar</option>
+                                    <option value="Chhattisgarh">Chhattisgarh</option>
+                                    <option value="Goa">Goa</option>
+                                    <option value="Gujarat">Gujarat</option>
+                                    <option value="Haryana">Haryana</option>
+                                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                    <option value="Jharkhand">Jharkhand</option>
+                                    <option value="Karnataka">Karnataka</option>
+                                    <option value="Kerala">Kerala</option>
+                                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                    <option value="Maharashtra">Maharashtra</option>
+                                    <option value="Manipur">Manipur</option>
+                                    <option value="Meghalaya">Meghalaya</option>
+                                    <option value="Mizoram">Mizoram</option>
+                                    <option value="Nagaland">Nagaland</option>
+                                    <option value="Odisha">Odisha</option>
+                                    <option value="Punjab">Punjab</option>
+                                    <option value="Rajasthan">Rajasthan</option>
+                                    <option value="Sikkim">Sikkim</option>
+                                    <option value="Tamil Nadu">Tamil Nadu</option>
+                                    <option value="Telangana">Telangana</option>
+                                    <option value="Tripura">Tripura</option>
+                                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                    <option value="Uttarakhand">Uttarakhand</option>
+                                    <option value="West Bengal">West Bengal</option>
+                                    <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                                    <option value="Chandigarh">Chandigarh</option>
+                                    <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+                                    <option value="Delhi">Delhi</option>
+                                    <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                    <option value="Ladakh">Ladakh</option>
+                                    <option value="Lakshadweep">Lakshadweep</option>
+                                    <option value="Puducherry">Puducherry</option>
+                            </select>
+                        </div>
+
+                        <!-- Educational Information Section -->
+                        <h2>Educational Information</h2>
+                        <div class="form-row">
+                            <div class="form-group inline">
+                                <label for="class12">12th Class/School</label>
+                                <input type="text" id="class12" name="class12" placeholder="Enter your 12th school name">
+                            </div>
+                            <div class="form-group inline">
+                                <label for="grade12">Grade in 12th</label>
+                                <input type="text" id="grade12" name="grade12" placeholder="e.g., 85% or A+">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group inline">
+                                <label for="class10">10th Class/School</label>
+                                <input type="text" id="class10" name="class10" placeholder="Enter your 10th school name">
+                            </div>
+                            <div class="form-group inline">
+                                <label for="grade10">Grade in 10th</label>
+                                <input type="text" id="grade10" name="grade10" placeholder="e.g., 90% or A+">
+                            </div>
+                        </div>
+
+                        <!-- Skills Section -->
+                        <h2>Skills</h2>
+                        <div class="form-group">
+                            <label for="skillInput">Add skills to showcase your strengths</label>
+                            <div class="skills-input-container">
+                                <input type="text" id="skillInput" placeholder="Type a skill and press Enter or Add">
+                                <button type="button" id="addSkillBtn" class="btn-primary-gradient">Add</button> <!-- Changed class -->
+                            </div>
+                            <div id="skillsContainer" class="skills-container"></div>
+                            <input type="hidden" id="skills" name="skills">
+                            <p class="form-info">Highlight your top skills</p>
+                        </div>
+
+                        <!-- Licenses and Certificates Section -->
+                        <h2>Licenses & Certificates</h2>
+                        <div id="certificatesContainer">
+                            <!-- Certificate 1 -->
+                            <div class="certificate-entry">
+                                <div class="form-row">
+                                    <div class="form-group inline">
+                                        <label for="certName1">Certificate Name</label>
+                                        <input type="text" id="certName1" name="certName1" placeholder="e.g., AWS Certified Solutions Architect">
+                                    </div>
+                                    <div class="form-group inline">
+                                        <label for="certIssuer1">Issuing Organization</label>
+                                        <input type="text" id="certIssuer1" name="certIssuer1" placeholder="e.g., Amazon Web Services">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group inline">
+                                        <label for="certDate1">Issue Date</label>
+                                        <input type="date" id="certDate1" name="certDate1">
+                                    </div>
+                                    <div class="form-group inline">
+                                        <label for="certLink1">Certificate Link</label>
+                                        <input type="url" id="certLink1" name="certLink1" placeholder="https://example.com/certificate">
+                                    </div>
+                                </div>
+                                <div class="photo-upload">
+                                     <label>Certificate Badge (Optional)</label>
+                                     <div class="photo-upload-container">
+                                         <div class="photo-preview certificate-badge-preview" id="certBadgePreview1">
+                                             <i class="fas fa-certificate"></i>
+                                         </div>
+                                         <div class="upload-controls">
+                                             <input type="file" id="certBadge1" name="certBadge1" accept="image/*" class="file-input">
+                                             <button type="button" class="upload-btn" onclick="document.getElementById('certBadge1').click();">
+                                                 <i class="fas fa-upload"></i> Upload Badge
+                                             </button>
+                                             <span class="file-name" id="certBadgeFileName1"></span>
+                                         </div>
+                                     </div>
+                                 </div>
+                            </div>
+                            <!-- End Certificate 1 -->
+                        </div>
+                        <button type="button" id="addCertificateBtn" class="btn-primary-gradient"> <!-- Changed class -->
+                            <i class="fas fa-plus"></i> Add another certificate
+                        </button>
+
+                    </div> <!-- End Left Column -->
+
+                    <div class="form-column"> <!-- Right Column: Company Info -->
+                        <h2>Company Information</h2>
+
+                        <!-- Company Visuals Container -->
+                        <div class="company-header-visuals">
+                            <!-- Company Banner Upload -->
+                            <div class="photo-upload banner-upload">
+                                 <!-- Label hidden via CSS -->
+                                <label for="companyBanner">Company Banner</label>
+                                <div class="photo-preview banner-preview" id="companyBannerPreview">
+                                     <!-- Placeholder removed -->
+                                </div>
+                                 <!-- Hidden file input for banner -->
+                                <input type="file" id="companyBanner" name="companyBanner" accept="image/*" class="file-input">
+                                 <!-- Single edit button for banner -->
+                                <button type="button" class="edit-visuals-btn" onclick="document.getElementById('companyBanner').click();" title="Change Company Banner">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </button>
+                            </div>
+
+                            <!-- Company Logo Upload (Positioned over banner via CSS) -->
+                            <div class="photo-upload company-logo-overlay">
+                                 <!-- Label hidden via CSS -->
+                                <label for="companyLogo">Company Logo</label>
+                                 <!-- Make preview clickable -->
+                                <div class="photo-preview company-logo-preview" id="companyLogoPreview" onclick="document.getElementById('companyLogo').click();" title="Change Logo">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                 <!-- Hidden file input for logo -->
+                                <input type="file" id="companyLogo" name="companyLogo" accept="image/*" class="file-input">
+                            </div>
+                        </div>
+                        <!-- End Company Visuals Container -->
+
+                        <!-- Company Details -->
+                        <div class="form-group">
+                            <label for="companyName">Company Name</label>
+                            <input type="text" id="companyName" name="companyName">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="companyAddress">Company Address</label>
+                            <textarea id="companyAddress" name="companyAddress" rows="2"></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group inline">
+                                <label for="companyPhone">Telephone Number</label>
+                                <input type="tel" id="companyPhone" name="companyPhone">
+                            </div>
+                            <div class="form-group inline">
+                                <label for="website">Website Link</label>
+                                <input type="url" id="website" name="website" placeholder="https://example.com">
+                            </div>
+                        </div>
+
+                        <!-- About Company Section -->
+                        <h2>About Your Company</h2>
+                        <div class="form-group">
+                            <label for="companyDescription">Company Description</label>
+                            <textarea id="companyDescription" name="companyDescription" rows="4" placeholder="Tell us about your company..."></textarea>
+                            <p class="form-info">A clear description helps investors understand your vision</p>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group inline">
+                                <label for="industry">Industry</label>
+                                <select id="industry" name="industry">
+                                    <option value="" disabled selected>Select your industry</option>
+                                    <option value="Technology">Technology</option>
+                                    <option value="Healthcare">Healthcare</option>
+                                    <option value="Finance">Finance</option>
+                                    <option value="Education">Education</option>
+                                    <option value="Retail">Retail</option>
+                                    <option value="Manufacturing">Manufacturing</option>
+                                    <option value="Agriculture">Agriculture</option>
+                                    <option value="Energy">Energy</option>
+                                    <option value="Transportation">Transportation</option>
+                                    <option value="Entertainment">Entertainment</option>
+                                    <option value="Food">Food & Beverage</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group inline">
+                                <label for="foundedYear">Year Founded</label>
+                                <input type="number" id="foundedYear" name="foundedYear" min="1900" max="2025" placeholder="e.g., 2020">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group inline">
+                                <label for="teamSize">Team Size</label>
+                                <select id="teamSize" name="teamSize">
+                                    <option value="" disabled selected>Select team size</option>
+                                    <option value="1-5">1-5 employees</option>
+                                    <option value="6-10">6-10 employees</option>
+                                    <option value="11-50">11-50 employees</option>
+                                    <option value="51-200">51-200 employees</option>
+                                    <option value="201-500">201-500 employees</option>
+                                    <option value="501+">501+ employees</option>
+                                </select>
+                            </div>
+                            <div class="form-group inline">
+                                <label for="fundingStage">Funding Stage</label>
+                                <select id="fundingStage" name="fundingStage">
+                                    <option value="" disabled selected>Select funding stage</option>
+                                    <option value="Pre-seed">Pre-seed</option>
+                                    <option value="Seed">Seed</option>
+                                    <option value="Series A">Series A</option>
+                                    <option value="Series B">Series B</option>
+                                    <option value="Series C+">Series C+</option>
+                                    <option value="Bootstrapped">Bootstrapped</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Social Media Section -->
+                        <h2>Social Media</h2>
+                        <div class="form-group social-input">
+                            <label for="instagram"><i class="fab fa-instagram"></i> Instagram</label>
+                            <input type="url" id="instagram" name="instagram" placeholder="https://instagram.com/yourprofile">
+                        </div>
+                        <div class="form-group social-input">
+                            <label for="linkedin"><i class="fab fa-linkedin"></i> LinkedIn</label>
+                            <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+                        </div>
+
+                    </div> <!-- End Right Column -->
+                </div> <!-- End two-column-form -->
+
+                <button type="submit" class="btn-save-profile">Save Changes</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <nav class="footer-nav">
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+        <p>&copy; 2025 ThriveX. All rights reserved.</p>
+    </footer>
+
+    <!-- Standard notification popup (can be styled further if needed) -->
+    <div id="savePopup" class="popup-notification" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background-color: #4CAF50; color: white; padding: 15px; border-radius: 5px; z-index: 1000;">
+        <i class="fas fa-check-circle"></i> Profile updated successfully
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

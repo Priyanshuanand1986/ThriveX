@@ -1,0 +1,816 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f4f7f6;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.logo-placeholder {
+    margin-top: 5px; /* Add some top margin to move it down */
+    margin-right: auto; /* Push nav and avatar to the right */
+}
+
+.logo-placeholder img,
+.avatar-placeholder i { /* Apply display block to icon too */
+    display: block; /* Removes extra space below image/icon */
+    font-size: 2.5rem; /* Increase icon size */
+    color: #00bf63; /* Apply green color */
+}
+
+.header-nav {
+    margin-right: 1.5rem; /* Add space between nav and avatar */
+}
+
+.header-nav ul,
+.footer-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.header-nav li,
+.footer-nav li {
+    margin-left: 1.5rem;
+}
+
+.header-nav a,
+.footer-nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+.header-nav a:hover,
+.footer-nav a:hover {
+    color: #007bff;
+}
+
+/* Styles for the Sign In button in the header */
+.btn-signin {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #00bf63; /* Use the main green color */
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.btn-signin:hover {
+    background-color: #008c48; /* Darker green on hover */
+    color: white;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.login-container {
+    background-color: #ffffff;
+    padding: 2rem 3rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Enhanced shadow effect */
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.login-container h1 {
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea { /* Style textarea */
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem; /* Ensure consistent font size */
+    font-family: inherit; /* Inherit font from body */
+}
+
+.form-group textarea {
+    resize: vertical; /* Allow vertical resize only */
+}
+
+button[type="submit"] {
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 100%; /* Restore full width */
+    margin-top: 1rem;
+    /* Wavy Gradient Background - Specific Green Shades */
+    background: linear-gradient(135deg, #33d17e, #00bf63, #008c48); /* Lighter, Base, Darker Green */
+    background-size: 300% 300%; /* Make gradient larger than the button */
+    background-position: 0% 50%; /* Set initial position */
+    transition: background-position 0.3s ease; /* Faster transition for hover */
+}
+
+/* Keyframes for the wavy animation (can be removed or kept if needed later) */
+/* @keyframes waveGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+} */
+
+button[type="submit"]:hover {
+    /* background-color: #0056b3; */ /* Remove static hover color */
+    /* Change background position on hover for a dynamic effect */
+    background-position: 100% 50%; /* Move to the other end of the gradient quickly */
+    /* Optionally, slightly change the gradient on hover */
+    /* background: linear-gradient(90deg, #a777e3, #6e8efb, #f9d4d4, #e2a9e5); */
+    /* background-size: 300% 300%; */
+}
+
+.login-container p {
+    margin-top: 1.5rem;
+    color: #555;
+}
+
+.login-container a {
+    color: #00bf63; /* Use the main green color */
+    text-decoration: none;
+}
+
+.login-container a:hover {
+    text-decoration: underline;
+}
+
+.avatar-placeholder {
+    position: relative; /* Needed for absolute positioning of dropdown */
+    cursor: pointer;
+    margin-left: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar-placeholder img {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.dropdown-content {
+    display: none; /* Hidden by default */
+    position: absolute;
+    right: 0;
+    top: 100%; /* Position below the avatar */
+    background-color: #f9f9f9;
+    min-width: 200px; /* Increased width */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 4px;
+    margin-top: 5px; /* Add a small gap between avatar and dropdown */
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 14px 18px; /* Increased padding for height */
+    text-decoration: none;
+    display: block;
+    font-size: 0.9rem;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Class to show the dropdown */
+.show {
+    display: block;
+}
+
+footer {
+    display: flex; /* Use flexbox for footer layout */
+    justify-content: space-between; /* Push nav left, copyright right */
+    align-items: center; /* Vertically align items */
+    background-color: #f8f9fa;
+    padding: 1.5rem 2rem;
+    border-top: 1px solid #e0e0e0;
+    color: #6c757d;
+    margin-top: auto; /* Pushes footer to the bottom */
+}
+
+.footer-nav {
+    margin-bottom: 0; /* Remove bottom margin as alignment is handled by footer flex */
+}
+
+footer p {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.profile-update-container {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.profile-update-container h1,
+.profile-update-container h2 { /* Style subheadings */
+    text-align: center;
+    margin-bottom: 1.5rem; /* Space below heading */
+    color: #333;
+}
+
+.profile-update-container h2 {
+    margin-top: 2rem; /* Add space above subheadings */
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #eee; /* Add a light separator line */
+    padding-bottom: 0.5rem;
+    text-align: left; /* Align subheadings left */
+}
+
+/* Two-column form layout */
+.two-column-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.form-column {
+    flex: 1 1 calc(50% - 1rem);
+    min-width: 300px;
+}
+
+/* Adjust for mobile screens */
+@media (max-width: 768px) {
+    .form-column {
+        flex: 1 1 100%;
+    }
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -0.5rem; /* Negative margin to counteract padding on .form-group */
+}
+
+.form-group {
+    flex: 1 1 100%; /* Full width on small screens */
+    padding: 0.5rem;
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+}
+
+.form-group.inline {
+    flex: 1 1 calc(50% - 1rem); /* Two columns for inline groups */
+}
+
+@media (min-width: 768px) {
+    .form-group {
+        flex: 1 1 calc(50% - 1rem); /* Two columns on medium+ screens */
+    }
+}
+
+.social-input {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; /* Space between icon/label and input */
+}
+
+.social-input label {
+    display: flex; /* Align icon and text */
+    align-items: center;
+    gap: 0.4rem; /* Space between icon and text */
+    margin-bottom: 0; /* Remove default label bottom margin */
+    width: 120px; /* Fixed width for labels */
+    flex-shrink: 0; /* Prevent label from shrinking */
+}
+
+.social-input label i {
+    font-size: 1.4rem; /* Adjust icon size */
+    color: #555; /* Icon color */
+}
+
+.social-input input {
+    flex-grow: 1; /* Allow input to take remaining space */
+}
+
+/* Fix textarea height */
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Form actions */
+.form-actions {
+    width: 100%;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.form-actions button {
+    max-width: 300px;
+    width: 100%;
+}
+
+/* Photo upload styling */
+.photo-upload {
+    margin-bottom: 1.5rem; /* Reduced margin */
+    /* text-align: center; */ /* Remove center alignment here */
+}
+
+.photo-upload label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #555;
+    text-align: left; /* Align labels left */
+}
+
+.photo-upload-container {
+    display: flex;
+    align-items: flex-end; /* Align items to bottom */
+    gap: 1rem;
+    /* background-color: #f9f9f9; */ /* Optional background */
+    /* padding: 1rem; */
+    /* border-radius: 8px; */
+    /* border: 1px solid #eee; */
+    position: relative; /* Needed for absolute positioning inside */
+    min-height: 100px; /* Ensure container has some height */
+}
+
+.photo-preview {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #e9ecef; /* Lighter grey */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border: 3px solid #ffffff; /* White border to lift it */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
+    flex-shrink: 0;
+}
+
+.company-logo-preview {
+    border-radius: 12px; /* Keep rounded square for logo */
+}
+
+.photo-preview i {
+    font-size: 3rem;
+    color: #adb5bd; /* Lighter icon color */
+}
+
+.photo-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.upload-controls {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align controls to the start */
+    gap: 0.5rem;
+}
+
+.file-input {
+    display: none; /* Hide the actual file input */
+}
+
+.upload-btn {
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: inline-flex; /* Use flex for icon alignment */
+    align-items: center;
+    gap: 0.5rem;
+    width: auto; /* Fit content */
+    transition: background-color 0.2s ease;
+}
+
+.upload-btn i {
+    font-size: 1em;
+}
+
+.upload-btn:hover {
+    background-color: #e4e4e4;
+}
+
+.file-name {
+    font-size: 0.85rem;
+    color: #666;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+    margin-top: 0.25rem;
+}
+
+/* Banner and Overlay Specific Styles */
+.profile-header-visuals,
+.company-header-visuals {
+    position: relative;
+    margin-bottom: 2rem;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.photo-upload.banner-upload {
+    margin-bottom: 0;
+    position: relative; /* Needed for absolute positioning of button */
+}
+
+.photo-upload.banner-upload label { /* Keep hidden label style */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.banner-preview {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px; /* Round all corners */
+    background-color: #d0d0d0;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #666;
+    font-style: italic;
+    border: none;
+    box-shadow: none;
+}
+
+.banner-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* New Edit Button for Banner */
+.edit-visuals-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+    z-index: 2; /* Ensure it's above banner */
+}
+
+.edit-visuals-btn:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Overlay for Profile Photo and Company Logo */
+.photo-upload.profile-photo-overlay,
+.photo-upload.company-logo-overlay {
+    position: absolute;
+    bottom: 20px; /* Position 20px from the bottom edge of the banner container */
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 0;
+    text-align: center;
+    z-index: 3; /* Ensure photo/logo is above banner and button */
+}
+
+.photo-upload.profile-photo-overlay label, /* Hide labels for overlay */
+.photo-upload.company-logo-overlay label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.photo-upload.profile-photo-overlay .photo-preview,
+.photo-upload.company-logo-overlay .photo-preview {
+    margin: 0 auto;
+    width: 120px;
+    height: 120px;
+    cursor: pointer; /* Make preview clickable */
+    position: relative;
+}
+
+/* Adjust spacing after the visual headers */
+.profile-header-visuals + .form-row,
+.company-header-visuals + .form-group {
+    margin-top: 40px; /* Reduced space as photo is now over the banner */
+}
+
+/* Certificate badge preview */
+.certificate-badge-preview {
+    width: 120px; /* Increased container size */
+    height: 120px; /* Increased container size */
+    border-radius: 12px; /* Keep rounded square */
+    /* Inherit other styles like background, display, align, justify */
+}
+
+.certificate-badge-preview i {
+    font-size: 5.25rem; /* Decreased size by 30% (7.5rem * 0.7) */
+    color: #adb5bd;
+}
+
+/* Adjustments for form rows and groups */
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+    margin-bottom: 0; /* Remove bottom margin from row itself */
+}
+
+.form-group {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    box-sizing: border-box;
+    margin-bottom: 1rem; /* Add margin to individual groups */
+    flex: 1 1 100%; /* Default to full width */
+}
+
+.form-group.inline {
+    flex: 1 1 50%; /* Two columns for inline groups */
+}
+
+/* Ensure inline groups wrap correctly on smaller screens if needed */
+@media (max-width: 600px) {
+    .form-group.inline {
+        flex: 1 1 100%;
+    }
+}
+
+/* Dashboard three-column layout */
+.dashboard-container {
+    display: flex;
+    min-height: calc(100vh - 140px); /* Subtract header and footer height */
+    background-color: #f4f7f6;
+}
+
+/* Left and right sidebars - each 1/4 width */
+.dashboard-sidebar {
+    width: 25%;
+    padding: 1.5rem;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.left-sidebar {
+    border-right: 1px solid #e0e0e0;
+}
+
+.right-sidebar {
+    border-left: 1px solid #e0e0e0;
+}
+
+/* Main content area - 1/2 width */
+.dashboard-main {
+    width: 50%;
+    padding: 1.5rem 2rem;
+    background-color: #fff;
+}
+
+/* Sidebar sections */
+.sidebar-section {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.sidebar-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.sidebar-section h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #333;
+    font-weight: 600;
+}
+
+/* Profile summary in left sidebar */
+.profile-summary {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.profile-photo {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    overflow: hidden;
+}
+
+.profile-photo i {
+    font-size: 2.5rem;
+    color: #00bf63;
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-info p {
+    margin: 0.3rem 0;
+    font-size: 0.9rem;
+}
+
+.btn-small {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.3rem 0.8rem;
+    background-color: #00bf63;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    transition: background-color 0.3s;
+}
+
+.btn-small:hover {
+    background-color: #00a353;
+}
+
+/* Primary button style with gradient */
+.btn-primary-gradient {
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    text-align: center;
+    /* width: 100%; */ /* Remove fixed width, let it size naturally or be controlled by parent */
+    margin-top: 1rem;
+    background: linear-gradient(135deg, #33d17e, #00bf63, #008c48);
+    background-size: 300% 300%;
+    background-position: 0% 50%;
+    transition: background-position 0.3s ease;
+    display: inline-flex; /* Align icon and text if needed */
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-decoration: none; /* Ensure no underline if used as link */
+}
+
+.btn-primary-gradient:hover {
+    background-position: 100% 50%;
+    color: white; /* Keep text color white on hover */
+}
+
+/* Apply primary gradient style to the save button */
+.btn-save-profile {
+    /* Inherit all styles from .btn-primary-gradient */
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 1rem;
+    background: linear-gradient(135deg, #33d17e, #00bf63, #008c48);
+    background-size: 300% 300%;
+    background-position: 0% 50%;
+    transition: background-position 0.3s ease;
+    display: block; /* Make save button full width block */
+    width: 100%;
+    max-width: 300px; /* Limit max width */
+    margin-left: auto; /* Center block element */
+    margin-right: auto;
+}
+
+.btn-save-profile:hover {
+    background-position: 100% 50%;
+    color: white;
+}
+
+/* Remove old secondary button style if not needed elsewhere */
+/* .btn-secondary { ... } */
+
+/* Remove old add skill button style */
+/* .btn-add-skill { ... } */
+
+/* Responsive adjustments for dashboard */
+@media (max-width: 1200px) {
+    .dashboard-container {
+        flex-wrap: wrap;
+    }
+    
+    .dashboard-main {
+        width: 70%;
+        order: 1;
+    }
+    
+    .left-sidebar {
+        width: 30%;
+        order: 0;
+    }
+    
+    .right-sidebar {
+        width: 100%;
+        order: 2;
+        border-left: none;
+        border-top: 1px solid #e0e0e0;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+    
+    .dashboard-main,
+    .left-sidebar,
+    .right-sidebar {
+        width: 100%;
+    }
+    
+    .left-sidebar {
+        order: 0;
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
+    }
+    
+    .dashboard-main {
+        order: 1;
+    }
+    
+    .right-sidebar {
+        order: 2;
+    }
+    
+    .dashboard-metrics {
+        flex-direction: column;
+    }
+    
+    .metric-card {
+        margin-bottom: 1rem;
+    }
+}
