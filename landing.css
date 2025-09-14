@@ -970,3 +970,53 @@ body {
 html {
     scroll-behavior: smooth;
 }
+
+/* Typing Effect Styles */
+.typing-effect {
+    color: var(--text-dark);
+    font-weight: 800;
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    text-align: left;
+    min-height: 4.2rem; /* Prevent layout shift */
+}
+
+.typed-text {
+    display: inline;
+}
+
+.cursor {
+    display: inline-block;
+    background-color: var(--primary-color);
+    margin-left: 3px;
+    width: 3px;
+    animation: blink 1s infinite;
+}
+
+.cursor.typing {
+    animation: none;
+}
+
+@keyframes blink {
+    0% { background-color: var(--primary-color); }
+    49% { background-color: var(--primary-color); }
+    50% { background-color: transparent; }
+    99% { background-color: transparent; }
+    100% { background-color: var(--primary-color); }
+}
+
+/* Responsive Typing Effect */
+@media (max-width: 768px) {
+    .typing-effect {
+        font-size: 2.5rem;
+        min-height: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .typing-effect {
+        font-size: 2rem;
+        min-height: 2.4rem;
+    }
+}
