@@ -3,60 +3,332 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Startup Investment App</title>
+    <title>ThriveX - Startup Investment Platform</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Add Font Awesome -->
+    <link rel="stylesheet" href="landing.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <header>
-        <div class="logo-placeholder">
-            <!-- Logo links to index page when not logged in -->
-            <a href="index.html">
-                <img src="placeholder-logo.png" alt="App Logo" style="height: 40px;"> 
-            </a>
-        </div>
-        <nav class="header-nav">
-            <ul>
-                <li><a href="#" id="home-link">Home</a></li>
-                <li><a href="#" id="investments-link">Investments</a></li>
-                <li><a href="#" id="about-link">About</a></li>
-            </ul>
-        </nav>
-        <!-- Replace avatar with Sign In button -->
-        <div class="header-action">
-            <a href="index.html" class="btn btn-signin">Sign In</a>
+    <header class="landing-header">
+        <div class="header-container">
+            <!-- Left Section: Logo -->
+            <div class="header-left">
+                <div class="logo-placeholder">
+                    <a href="index.html">
+                        <img src="placeholder-logo.png" alt="ThriveX Logo" style="height: 40px;">
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Right Section: Navigation + Buttons -->
+            <div class="header-right">
+                <nav class="header-nav">
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <a href="login.html" class="btn-secondary">Sign In</a>
+                    <a href="register.html" class="btn-primary">Get Started</a>
+                </div>
+            </div>
         </div>
     </header>
 
-    <main>
-        <div class="login-container">
-            <h1>Login</h1>
-            <form id="login-form">
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Invest in the Future of Innovation</h1>
+                <p class="hero-subtitle">Connect with groundbreaking startups and visionary entrepreneurs. ThriveX is the premier platform for startup investment and entrepreneurial growth.</p>
+                <div class="hero-buttons">
+                    <a href="login.html" class="btn-hero-primary">Start Investing</a>
+                    <a href="#features" class="btn-hero-secondary">Learn More</a>
                 </div>
-                <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Startups Funded</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">$50M+</span>
+                        <span class="stat-label">Total Investments</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">10K+</span>
+                        <span class="stat-label">Active Investors</span>
+                    </div>
                 </div>
-                <button type="submit">Login</button>
-            </form>
-            <p>Don't have an account? <a href="register.html" id="register-link">Register here</a></p> 
+            </div>
+            <div class="hero-image">
+                <div class="hero-visual">
+                    <i class="fas fa-rocket" style="font-size: 8rem; color: #00bf63;"></i>
+                </div>
+            </div>
         </div>
-    </main>
+    </section>
 
-    <footer>
-        <nav class="footer-nav">
-            <ul>
-                <li><a href="#" id="terms-link">Terms of Service</a></li>
-                <li><a href="#" id="privacy-link">Privacy Policy</a></li>
-                <li><a href="#" id="contact-link">Contact Us</a></li>
-            </ul>
-        </nav>
-        <p>&copy; 2025 ThriveX. All rights reserved.</p> 
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose ThriveX?</h2>
+            <p class="section-subtitle">Everything you need to succeed in startup investment and entrepreneurship</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-search-dollar"></i>
+                    </div>
+                    <h3>Smart Investment Matching</h3>
+                    <p>Our AI-powered algorithm matches you with startups that align with your investment preferences and risk tolerance.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Secure Transactions</h3>
+                    <p>Bank-level security and encryption ensure your investments and personal data are always protected.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Real-time Analytics</h3>
+                    <p>Track your portfolio performance with comprehensive analytics and real-time market insights.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Expert Community</h3>
+                    <p>Connect with experienced investors, successful entrepreneurs, and industry experts.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Educational Resources</h3>
+                    <p>Access exclusive webinars, courses, and resources to enhance your investment knowledge.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Access</h3>
+                    <p>Manage your investments anywhere with our responsive web platform and mobile optimization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">Choose Your Plan</h2>
+            <p class="section-subtitle">Flexible pricing for investors and entrepreneurs at every stage</p>
+            
+            <div class="pricing-grid">
+                <!-- Starter Plan -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Starter</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">29</span>
+                            <span class="period">/month</span>
+                        </div>
+                        <p class="plan-description">Perfect for new investors</p>
+                    </div>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> Access to startup marketplace</li>
+                        <li><i class="fas fa-check"></i> Basic portfolio tracking</li>
+                        <li><i class="fas fa-check"></i> Community access</li>
+                        <li><i class="fas fa-check"></i> Email support</li>
+                        <li><i class="fas fa-check"></i> Mobile app access</li>
+                    </ul>
+                    <a href="register.html" class="btn-pricing">Get Started</a>
+                </div>
+
+                <!-- Professional Plan -->
+                <div class="pricing-card featured">
+                    <div class="featured-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3>Professional</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">79</span>
+                            <span class="period">/month</span>
+                        </div>
+                        <p class="plan-description">For serious investors</p>
+                    </div>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> Everything in Starter</li>
+                        <li><i class="fas fa-check"></i> Advanced analytics</li>
+                        <li><i class="fas fa-check"></i> Priority deal access</li>
+                        <li><i class="fas fa-check"></i> Expert consultations</li>
+                        <li><i class="fas fa-check"></i> Custom investment strategies</li>
+                        <li><i class="fas fa-check"></i> 24/7 phone support</li>
+                    </ul>
+                    <a href="register.html" class="btn-pricing btn-featured">Start Free Trial</a>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Enterprise</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">199</span>
+                            <span class="period">/month</span>
+                        </div>
+                        <p class="plan-description">For investment firms</p>
+                    </div>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> Everything in Professional</li>
+                        <li><i class="fas fa-check"></i> White-label solutions</li>
+                        <li><i class="fas fa-check"></i> API access</li>
+                        <li><i class="fas fa-check"></i> Dedicated account manager</li>
+                        <li><i class="fas fa-check"></i> Custom integrations</li>
+                        <li><i class="fas fa-check"></i> SLA guarantee</li>
+                    </ul>
+                    <a href="#contact" class="btn-pricing">Contact Sales</a>
+                </div>
+            </div>
+            
+            <div class="pricing-note">
+                <p><i class="fas fa-info-circle"></i> All plans include a 14-day free trial. No credit card required.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Users Say</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"ThriveX helped me discover and invest in three successful startups. The platform's insights are invaluable."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <span>Angel Investor</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"As an entrepreneur, ThriveX connected me with the right investors. Raised $2M in Series A funding!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Mike Chen</h4>
+                            <span>CEO, TechStart</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The analytics and market insights on ThriveX are game-changing. Best investment platform I've used."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Alex Rivera</h4>
+                            <span>Venture Capitalist</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Start Your Investment Journey?</h2>
+                <p>Join thousands of successful investors and entrepreneurs on ThriveX</p>
+                <div class="cta-buttons">
+                    <a href="register.html" class="btn-cta-primary">Start Free Trial</a>
+                    <a href="index.html" class="btn-cta-secondary">Sign In</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>ThriveX</h4>
+                    <p>Empowering the next generation of entrepreneurs and investors.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#">API</a></li>
+                        <li><a href="#">Integrations</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 ThriveX. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="landing.js"></script>
 </body>
 </html>

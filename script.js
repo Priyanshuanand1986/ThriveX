@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Redirect to login if on protected pages
             if (window.location.pathname.includes('dashboard.html') || window.location.pathname.includes('update-profile.html')) {
                 console.log("Redirecting to login - no user session found");
-                window.location.replace('index.html');
+                window.location.replace('login.html');
                 return;
             }
         }
