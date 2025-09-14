@@ -15,6 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 } catch (error) {
                     console.error("Error parsing user data:", error);
                     userData = {}; // Reset if parsing fails
+                    // Optional: Show user-friendly message
+                    if (window.location.pathname.includes('dashboard.html') || window.location.pathname.includes('update-profile.html')) {
+                        console.warn("Unable to load saved profile data. Starting fresh.");
+                    }
                 }
             } else {
                 console.log("No saved user data found for:", currentUserEmail);
@@ -23,11 +27,35 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             console.log("No current user logged in.");
             userData = {}; // Ensure userData is an empty object if no user
+            
+            // Redirect to login if on protected pages
+            if (window.location.pathname.includes('dashboard.html') || window.location.pathname.includes('update-profile.html')) {
+                console.log("Redirecting to login - no user session found");
+                window.location.replace('index.html');
+                return;
+            }
         }
     }
 
     // Load user data initially
     loadUserData();
+
+    // --- Utility Functions ---
+    function showNotification(message, type = 'success') {
+        const popup = document.getElementById('savePopup');
+        if (popup) {
+            const icon = type === 'success' ? 'fas fa-check-circle' : 'fas fa-exclamation-triangle';
+            const bgColor = type === 'success' ? '#4CAF50' : '#ff9800';
+            
+            popup.innerHTML = `<i class="${icon}"></i> ${message}`;
+            popup.style.backgroundColor = bgColor;
+            popup.style.display = 'block';
+            
+            setTimeout(() => {
+                popup.style.display = 'none';
+            }, 3000);
+        }
+    }
 
 
     // Function to save user data
@@ -93,6 +121,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const companyLogoElement = document.querySelector(".company-logo"); // Container div
         const profilePhotoElement = document.querySelector(".profile-photo-center img");
         const headerAvatarPlaceholder = document.querySelector(".avatar-placeholder");
+
+        // Update dashboard welcome message
+        const dashboardWelcome = document.querySelector('.dashboard-main h1');
+        if (dashboardWelcome && currentUserEmail) {
+            const firstName = userData.firstName || currentUserEmail.split('@')[0];
+            dashboardWelcome.textContent = `Welcome Back, ${firstName}!`;
+        }
 
         if (Object.keys(userData).length > 0) {
             console.log("Updating dashboard sidebar with user data...");
@@ -316,9 +351,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Save the updated data
                 saveUserData();
 
-                // Optional: Give feedback and redirect
-                alert("Profile updated successfully!");
-                window.location.href = "dashboard.html"; // Redirect to dashboard
+                // Show success notification
+                showNotification("Profile updated successfully!");
+                
+                // Redirect to dashboard after a short delay
+                setTimeout(() => {
+                    window.location.href = "dashboard.html";
+                }, 1500);
             });
         }
     }
@@ -333,20 +372,118 @@ document.addEventListener("DOMContentLoaded", () => {
         const email = emailInput.value.trim();
         const password = passwordInput.value; // No trim for password
 
-        // Simple demo login - replace with real auth later
-        const demoEmail = "user@example.com";
-        const demoPassword = "password123";
+        // Simple validation
+        if (!email || !password) {
+            alert("Please fill in both email and password.");
+            return;
+        }
 
-        if (email === demoEmail && password === demoPassword) {
-            console.log("Demo login successful!");
+        // Demo login credentials for testing (in production, this would be server-side)
+        const validCredentials = [
+            { email: "demo@thrivex.com", password: "demo123" },
+            { email: "investor@example.com", password: "invest123" },
+            { email: "user@test.com", password: "test123" }
+        ];
+
+        const isValidUser = validCredentials.find(cred => 
+            cred.email === email && cred.password === password
+        );
+
+        if (isValidUser) {
+            console.log("Login successful for:", email);
             localStorage.setItem("currentUser", email); // Set the current user
-            loadUserData(); // Load data for the logged-in user
-            window.location.replace("dashboard.html"); // Use replace to avoid back button to login
+            
+            // Show success message briefly
+            const originalText = loginForm.querySelector('button[type="submit"]').textContent;
+            loginForm.querySelector('button[type="submit"]').textContent = "Logging in...";
+            
+            setTimeout(() => {
+                loadUserData(); // Load data for the logged-in user
+                window.location.replace("dashboard.html"); // Use replace to avoid back button to login
+            }, 500);
+            
         } else {
             console.log("Login failed: Invalid credentials");
-            alert("Invalid email or password.");
+            alert("Invalid email or password.\n\nDemo accounts:\n• demo@thrivex.com / demo123\n• investor@example.com / invest123\n• user@test.com / test123");
             passwordInput.value = "";
             passwordInput.focus();
+        }
+    });
+
+    // --- Registration Page Logic ---
+    const registerForm = document.getElementById("register-form");
+    registerForm?.addEventListener("submit", (event) => {
+        event.preventDefault();
+        
+        const nameInput = document.getElementById("name");
+        const emailInput = document.getElementById("email");
+        const passwordInput = document.getElementById("password");
+        const confirmPasswordInput = document.getElementById("confirm-password");
+        
+        const name = nameInput.value.trim();
+        const email = emailInput.value.trim();
+        const password = passwordInput.value;
+        const confirmPassword = confirmPasswordInput.value;
+
+        // Validation
+        if (!name || !email || !password || !confirmPassword) {
+            alert("Please fill in all fields.");
+            return;
+        }
+
+        if (password !== confirmPassword) {
+            alert("Passwords do not match.");
+            confirmPasswordInput.focus();
+            return;
+        }
+
+        if (password.length < 6) {
+            alert("Password must be at least 6 characters long.");
+            passwordInput.focus();
+            return;
+        }
+
+        // Check if user already exists (simple demo check)
+        const existingUser = localStorage.getItem(`user_${email}`);
+        if (existingUser) {
+            alert("An account with this email already exists. Please use a different email or sign in.");
+            emailInput.focus();
+            return;
+        }
+
+        // Create new user account
+        const nameParts = name.split(' ');
+        const newUserData = {
+            firstName: nameParts[0] || '',
+            lastName: nameParts.slice(1).join(' ') || '',
+            email: email,
+            tagline: 'Welcome to ThriveX!',
+            // Add other default fields
+            phone: '',
+            companyName: '',
+            homeAddress: '',
+            state: '',
+            class12: '',
+            grade12: '',
+            class10: '',
+            grade10: '',
+            skills: []
+        };
+
+        try {
+            // Save new user data
+            localStorage.setItem(`user_${email}`, JSON.stringify(newUserData));
+            localStorage.setItem("currentUser", email); // Log them in automatically
+            
+            console.log("Registration successful for:", email);
+            alert("Registration successful! Welcome to ThriveX.");
+            
+            // Redirect to dashboard
+            window.location.replace("dashboard.html");
+            
+        } catch (error) {
+            console.error("Error saving user data:", error);
+            alert("Registration failed. Please try again.");
         }
     });
 
